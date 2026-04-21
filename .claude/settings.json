@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)"
+    ],
+    "additionalDirectories": [
+      "e:\\study\\framework\\docs\\superpowers"
+    ]
+  }
+}
