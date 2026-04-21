@@ -1,0 +1,9 @@
+{
+    "id": "com.pluginframework.counter",
+    "name": "Counter Plugin",
+    "version": "1.0.0",
+    "author": "PluginFramework",
+    "description": "A simple counter plugin demonstrating plugin services",
+    "apiVersion": "1.0.0",
+    "dependencies": []
+}

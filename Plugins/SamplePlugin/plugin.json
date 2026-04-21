@@ -1,0 +1,9 @@
+{
+    "id": "com.pluginframework.sample",
+    "name": "Sample Plugin",
+    "version": "1.0.0",
+    "author": "PluginFramework",
+    "description": "A sample plugin demonstrating the plugin framework",
+    "apiVersion": "1.0.0",
+    "dependencies": []
+}
