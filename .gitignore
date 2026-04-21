@@ -1,0 +1,6 @@
+.claude/
+build/
+.vs/
+*.user
+*.suo
+CMakeLists.txt.user
