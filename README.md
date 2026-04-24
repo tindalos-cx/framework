@@ -28,26 +28,38 @@ PluginFramework/
 ### 环境要求
 
 - CMake >= 3.16
-- Qt 5.15+ 或 Qt 6.x
-- C++17 编译器（GCC 9+, MSVC 2019+, Clang 12+）
-- Windows: Visual Studio 2019+
-- Linux: GCC/Clang + 开发工具
+- **Qt 6.0+**
+- C++17 编译器（GCC 9+, MSVC 2022+, Clang 12+）
+- Windows: Visual Studio 2022+
 
 ### 构建步骤
+
+Qt6 需要手动指定安装路径（`CMAKE_PREFIX_PATH`）：
 
 ```bash
 # 创建构建目录
 mkdir build && cd build
 
-# 配置项目
-cmake ..
+# 配置项目（Windows 示例路径，请替换为你本地的 Qt6 路径）
+cmake .. -DCMAKE_PREFIX_PATH="E:/app/qt/6.8.3/msvc2022_64"
 
 # 编译
 cmake --build . --config Release
 
 # 运行宿主应用
-./HostApp/PluginHostApp
+./bin/Release/PluginHostApp
 ```
+
+### 运行时部署
+
+编译出的可执行文件依赖 Qt6 运行时 DLL，需要先用 `windeployqt` 部署后才能运行：
+
+```bash
+# 部署 Qt6 依赖到输出目录（路径替换为你本地的 Qt6）
+E:/app/qt/6.8.3/msvc2022_64/bin/windeployqt.exe build/bin/Release/PluginHostApp.exe --dir build/bin/Release/
+```
+
+**MSVC 运行时**：目标机器如果没有安装 Visual Studio，还需要带上 `MSVCP140.dll`、`VCRUNTIME140.dll` 等运行时库，或让对方安装 [VC++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe)。
 
 ### 开发新插件
 

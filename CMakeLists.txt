@@ -17,6 +17,8 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # 寻找 Qt6
+# 如果 CMake 找不到 Qt6，请在配置时指定路径：
+#   cmake -B build -S . -DCMAKE_PREFIX_PATH="<Qt6安装路径>"
 set(QT_VERSION_MAJOR 6)
 set(QT_MIN_VERSION 6.0)
 find_package(Qt6 ${QT_MIN_VERSION} COMPONENTS Core Widgets REQUIRED)
