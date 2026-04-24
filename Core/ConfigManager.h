@@ -48,7 +48,7 @@ private:
     std::string m_pluginDirectory;
 
     void EnsureConfigDirectory();
-    std::string GetDefaultConfigPath();
+    std::string GetDefaultConfigPath() const;
 };
 
 } // namespace PluginFramework

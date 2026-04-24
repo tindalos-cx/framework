@@ -53,7 +53,7 @@ std::vector<PluginFramework::PluginUIPage> CounterPlugin::GetUIPages() {
     return {};
 }
 
-PluginFramework::QWidget* CounterPlugin::CreateUIPage(const std::string& pageId, PluginFramework::QWidget* parent) {
+QWidget* CounterPlugin::CreateUIPage(const std::string& pageId, QWidget* parent) {
     return nullptr;
 }
 

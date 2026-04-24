@@ -16,10 +16,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-# 寻找 Qt5 (优先 5.15)
-set(QT_VERSION_MAJOR 5)
-set(QT_MIN_VERSION 5.15)
-find_package(Qt5 ${QT_MIN_VERSION} COMPONENTS Core Widgets REQUIRED)
+# 寻找 Qt6
+set(QT_VERSION_MAJOR 6)
+set(QT_MIN_VERSION 6.0)
+find_package(Qt6 ${QT_MIN_VERSION} COMPONENTS Core Widgets REQUIRED)
 
 # 插件输出目录
 set(PLUGIN_OUTPUT_DIR ${CMAKE_BINARY_DIR}/bin/plugins)
@@ -28,8 +28,8 @@ set(PLUGIN_OUTPUT_DIR ${CMAKE_BINARY_DIR}/bin/plugins)
 include(FetchContent)
 FetchContent_Declare(
     json
-    GIT_REPOSITORY https://github.com/nlohmann/json.git
-    GIT_TAG v3.11.3
+    URL https://ghfast.top/https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz
+    URL_HASH SHA256=d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d
 )
 FetchContent_MakeAvailable(json)
 

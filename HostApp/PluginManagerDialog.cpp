@@ -1,6 +1,7 @@
 #include "PluginManagerDialog.h"
-#include <PluginFramework/PluginManager.h>
-#include <PluginFramework/PluginTypes.h>
+#include <IPlugin.h>
+#include <PluginManager.h>
+#include <PluginTypes.h>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QHeaderView>

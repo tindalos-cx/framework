@@ -11,8 +11,8 @@ set(CORE_SOURCES
 
 add_library(PluginCore STATIC ${CORE_SOURCES})
 
-# Qt5 依赖
-target_link_libraries(PluginCore PRIVATE Qt5::Core Qt5::Widgets)
+# Qt6 依赖
+target_link_libraries(PluginCore PRIVATE Qt6::Core Qt6::Widgets)
 
 # nlohmann/json 依赖
 target_link_libraries(PluginCore PRIVATE nlohmann_json::nlohmann_json)

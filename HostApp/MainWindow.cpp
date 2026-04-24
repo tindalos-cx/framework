@@ -1,7 +1,7 @@
 #include "MainWindow.h"
 #include "PluginManagerDialog.h"
-#include <PluginFramework/IHost.h>
-#include <PluginFramework/PluginManager.h>
+#include <IHost.h>
+#include <PluginManager.h>
 #include <QVBoxLayout>
 #include <QMenuBar>
 #include <QToolBar>

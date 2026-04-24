@@ -8,8 +8,8 @@ set(HOSTAPP_SOURCES
 
 add_executable(PluginHostApp ${HOSTAPP_SOURCES})
 
-# Qt5 依赖
-target_link_libraries(PluginHostApp PRIVATE Qt5::Core Qt5::Widgets)
+# Qt6 依赖
+target_link_libraries(PluginHostApp PRIVATE Qt6::Core Qt6::Widgets)
 
 target_link_libraries(PluginHostApp PRIVATE
     PluginFramework::PluginCore

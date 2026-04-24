@@ -5,6 +5,7 @@
 
 #ifdef _WIN32
     #include <shlobj.h>
+    #include <windows.h>
 #else
     #include <unistd.h>
     #include <sys/types.h>
@@ -27,8 +28,27 @@ bool ConfigManager::Initialize() {
         return Load();
     }
 
-    // 使用默认配置
-    m_pluginDirectory = GetConfigDirectory() + "/plugins";
+    // 使用默认配置：优先使用 exe 所在目录的 plugins 子目录（开发/构建场景）
+    // 如果不存在，则回退到配置目录下的 plugins
+    fs::path localPluginsDir;
+#ifdef _WIN32
+    char exePath[MAX_PATH];
+    if (GetModuleFileNameA(nullptr, exePath, MAX_PATH) > 0) {
+        localPluginsDir = fs::path(exePath).parent_path() / "plugins";
+    }
+#else
+    char exePath[PATH_MAX];
+    ssize_t len = readlink("/proc/self/exe", exePath, sizeof(exePath) - 1);
+    if (len != -1) {
+        exePath[len] = '\0';
+        localPluginsDir = fs::path(exePath).parent_path() / "plugins";
+    }
+#endif
+    if (!localPluginsDir.empty() && fs::exists(localPluginsDir) && fs::is_directory(localPluginsDir)) {
+        m_pluginDirectory = localPluginsDir.string();
+    } else {
+        m_pluginDirectory = GetConfigDirectory() + "/plugins";
+    }
     return true;
 }
 
@@ -195,7 +215,7 @@ void ConfigManager::EnsureConfigDirectory() {
     }
 }
 
-std::string ConfigManager::GetDefaultConfigPath() {
+std::string ConfigManager::GetDefaultConfigPath() const {
 #ifdef _WIN32
     char appData[MAX_PATH];
     if (SUCCEEDED(SHGetFolderPathA(NULL, CSIDL_APPDATA, NULL, 0, appData))) {

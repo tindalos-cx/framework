@@ -51,7 +51,7 @@ std::vector<PluginFramework::PluginUIPage> SamplePlugin::GetUIPages() {
     return {};
 }
 
-PluginFramework::QWidget* SamplePlugin::CreateUIPage(const std::string& pageId, PluginFramework::QWidget* parent) {
+QWidget* SamplePlugin::CreateUIPage(const std::string& pageId, QWidget* parent) {
     return nullptr;
 }
 

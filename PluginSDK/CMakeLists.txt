@@ -7,8 +7,8 @@ target_include_directories(PluginSDK INTERFACE
     $<INSTALL_INTERFACE:include>
 )
 
-# Qt5 依赖（用于 QWidget* 类型）
-target_link_libraries(PluginSDK INTERFACE Qt5::Widgets)
+# Qt6 依赖（用于 QWidget* 类型）
+target_link_libraries(PluginSDK INTERFACE Qt6::Widgets)
 
 # 导出为 PluginFramework::PluginSDK
 add_library(PluginFramework::PluginSDK ALIAS PluginSDK)

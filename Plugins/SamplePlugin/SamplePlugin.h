@@ -17,7 +17,7 @@ public:
 
     PluginFramework::IPluginService* GetService(const std::string& serviceName) override;
     std::vector<PluginFramework::PluginUIPage> GetUIPages() override;
-    PluginFramework::QWidget* CreateUIPage(const std::string& pageId, PluginFramework::QWidget* parent) override;
+    QWidget* CreateUIPage(const std::string& pageId, QWidget* parent) override;
 
 private:
     PluginFramework::PluginMetadata m_metadata;
